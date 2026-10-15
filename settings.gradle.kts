@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PMDM_2DAM"
 include(":app")
+include(":ej1_r2")
