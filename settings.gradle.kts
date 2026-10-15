@@ -24,4 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "PMDM_2DAM"
 include(":app")
-include(":r1_ej02_ticket")
