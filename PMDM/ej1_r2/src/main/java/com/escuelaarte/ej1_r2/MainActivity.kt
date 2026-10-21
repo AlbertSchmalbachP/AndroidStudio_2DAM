@@ -1,5 +1,6 @@
 package com.escuelaarte.ej1_r2
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -7,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,10 +28,18 @@ class MainActivity : AppCompatActivity() {
 
             if (nombreConv.isEmpty()) {
                 resultado.text = "Introduce un nombre."
-            } else if (minutosConv < 1 || minutosConv > 300) {
-                // No válido
-            } else if (intensidadConv < 1 || intensidadConv > 10) {
-                // No válido
+            } else if (minutosConv == null || minutosConv < 1 || minutosConv > 300) {
+                resultado.text = "Introduce unos minutos."
+            } else if (intensidadConv == null || intensidadConv < 1 || intensidadConv > 10) {
+                resultado.text = "Introduce una intensidad."
+            } else {
+                if (intensidadConv < 4) {
+                    intensidadText = "Baja"
+                } else if (intensidadConv < 7) {
+                    intensidadText = "Moderada"
+                } else {
+                    intensidadText = "Alta"
+                }
             }
         }
         // TODO 3: programa los eventos de clic y las validaciones.
